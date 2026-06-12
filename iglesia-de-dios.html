@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Iglesia de Dios · Formosa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Nunito', sans-serif; color: #2c1f14; background: #fdf6ee; }
+
+    /* NAV */
+    nav {
+      background: #fdf6ee;
+      border-bottom: 1px solid #e8d9c5;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 2.5rem; height: 62px;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 22px; color: #2c1f14; font-weight: 600; text-decoration: none; }
+    .nav-logo span { color: #b5622a; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links li a { color: #6b4f38; text-decoration: none; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+    .nav-links li a:hover { color: #b5622a; }
+    .nav-btn { background: #b5622a; color: #fff; font-size: 13px; font-weight: 600; padding: 9px 20px; border-radius: 100px; text-decoration: none; letter-spacing: 0.04em; transition: opacity 0.2s; }
+    .nav-btn:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      background: #f5ebe0;
+      padding: 5rem 3rem 4rem;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3rem; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero::before {
+      content: ''; position: absolute; right: -80px; top: -80px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(181,98,42,0.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(181,98,42,0.1); color: #b5622a;
+      font-size: 11px; font-weight: 700; padding: 6px 14px;
+      border-radius: 100px; letter-spacing: 0.09em; margin-bottom: 1.3rem;
+    }
+    .tag-dot { width: 7px; height: 7px; background: #b5622a; border-radius: 50%; }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: 58px; font-weight: 700; color: #2c1f14; line-height: 1.07; margin-bottom: 1.1rem; }
+    h1 em { color: #b5622a; font-style: italic; }
+    .hero-sub { font-size: 15px; color: #7a5c45; line-height: 1.85; margin-bottom: 2.2rem; font-weight: 400; max-width: 380px; }
+    .hero-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-fill { display: inline-flex; align-items: center; gap: 8px; background: #b5622a; color: #fff; font-size: 14px; font-weight: 600; padding: 13px 26px; border-radius: 100px; text-decoration: none; letter-spacing: 0.04em; transition: opacity 0.2s; }
+    .btn-fill:hover { opacity: 0.88; }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid #b5622a; color: #b5622a; font-size: 14px; font-weight: 600; padding: 12px 24px; border-radius: 100px; text-decoration: none; transition: background 0.2s; }
+    .btn-outline:hover { background: rgba(181,98,42,0.06); }
+    .hero-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .hero-photo {
+      border-radius: 14px; background: #d4b99a;
+      display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px;
+      color: rgba(44,31,20,0.28); font-size: 12px; letter-spacing: 0.07em;
+    }
+    /* REEMPLAZAR con: <img src="foto.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:14px;"> */
+    .hero-photo i { font-size: 28px; color: rgba(44,31,20,0.2); }
+    .hp1 { height: 200px; }
+    .hp2 { height: 200px; margin-top: 28px; background: #c4a07e; }
+
+    /* SECCIÓN BASE */
+    .section { padding: 5.5rem 3rem; }
+    .section-inner { max-width: 900px; margin: 0 auto; }
+    .section-label { font-size: 10px; letter-spacing: 0.22em; color: #b5622a; font-weight: 700; margin-bottom: 0.5rem; }
+    .section-title { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 600; color: #2c1f14; margin-bottom: 0.9rem; line-height: 1.2; }
+    .section-body { font-size: 15px; color: #7a5c45; line-height: 1.85; }
+    .divider { width: 48px; height: 2.5px; background: #b5622a; border-radius: 2px; margin: 1.5rem 0; }
+
+    /* QUIÉNES SOMOS */
+    #quienes { background: #fff; }
+    #quienes .section-inner { text-align: center; }
+    #quienes .divider { margin: 1.5rem auto; }
+    #quienes .section-body { max-width: 580px; margin: 0 auto; }
+    .valores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin-top: 3rem; text-align: left; }
+    .valor-card { background: #fdf6ee; border-radius: 14px; padding: 1.6rem 1.4rem; border: 1px solid #e8d9c5; }
+    .valor-icon { width: 44px; height: 44px; background: rgba(181,98,42,0.1); border-radius: 11px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; font-size: 22px; }
+    .valor-name { font-size: 15px; font-weight: 700; color: #2c1f14; margin-bottom: 5px; }
+    .valor-desc { font-size: 13px; color: #7a5c45; line-height: 1.65; }
+
+    /* MINISTERIOS */
+    #ministerios { background: #2c1f14; }
+    #ministerios .section-label { color: #d4916a; }
+    #ministerios .section-title { color: #fdf6ee; }
+    #ministerios .section-body { color: rgba(253,246,238,0.52); }
+    .min-list { margin-top: 2.8rem; }
+    .min-row {
+      display: flex; align-items: center; gap: 1.2rem;
+      background: rgba(255,255,255,0.04);
+      border: 0.5px solid rgba(255,255,255,0.08);
+      border-radius: 12px; margin-bottom: 10px;
+      padding: 1.1rem 1.4rem;
+      text-decoration: none; color: inherit;
+      transition: background 0.2s;
+      display: flex;
+    }
+    .min-row:hover { background: rgba(181,98,42,0.13); }
+    .min-num { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700; color: rgba(181,98,42,0.3); min-width: 40px; line-height: 1; }
+    .min-ico { width: 48px; height: 48px; border-radius: 11px; background: rgba(181,98,42,0.15); display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+    .min-info { flex: 1; }
+    .min-name { font-size: 15px; font-weight: 600; color: #fdf6ee; margin-bottom: 3px; }
+    .min-desc-text { font-size: 13px; color: rgba(253,246,238,0.48); line-height: 1.5; }
+    .min-arrow { color: rgba(181,98,42,0.55); font-size: 20px; }
+
+    /* REDES */
+    #redes { background: #fdf6ee; }
+    .redes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; margin-top: 2.8rem; }
+    .red-card { border-radius: 16px; overflow: hidden; border: 1px solid #e8d9c5; background: #fff; }
+    .red-top { padding: 1.2rem 1.4rem; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #f0e6d8; }
+    .red-icon-ig { width: 42px; height: 42px; border-radius: 11px; background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); display: flex; align-items: center; justify-content: center; font-size: 20px; color: #fff; }
+    .red-icon-fb { width: 42px; height: 42px; border-radius: 11px; background: #1877f2; display: flex; align-items: center; justify-content: center; font-size: 20px; font-weight: 700; color: #fff; }
+    .red-name { font-size: 15px; font-weight: 700; color: #2c1f14; }
+    .red-handle { font-size: 12px; color: #9a7b65; }
+    .red-body {
+      background: #faf5ef; height: 140px;
+      display: flex; align-items: center; justify-content: center;
+      color: #c4a07e; font-size: 13px; letter-spacing: 0.05em;
+      border-bottom: 1px solid #f0e6d8;
+    }
+    /* REEMPLAZAR .red-body con el embed real:
+       Instagram: usa https://www.elfsight.com o el plugin de WordPress
+       Facebook: <iframe src="https://www.facebook.com/plugins/video.php?href=..."></iframe> */
+    .red-footer { padding: 0.9rem 1.4rem; display: flex; align-items: center; justify-content: space-between; }
+    .live-pill { display: inline-flex; align-items: center; gap: 5px; background: #fff1f1; color: #c53030; font-size: 10px; font-weight: 700; padding: 4px 11px; border-radius: 100px; letter-spacing: 0.09em; }
+    .live-dot { width: 6px; height: 6px; background: #e53e3e; border-radius: 50%; animation: blink 1.2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+    .red-ver { font-size: 12px; color: #b5622a; font-weight: 600; text-decoration: none; display: flex; align-items: center; gap: 4px; }
+
+    /* OFRENDAR */
+    #ofrendar { background: linear-gradient(135deg, #b5622a 0%, #8f4a1f 100%); padding: 5.5rem 3rem; text-align: center; }
+    #ofrendar h2 { font-family: 'Cormorant Garamond', serif; font-size: 40px; font-weight: 700; color: #fff; margin-bottom: 0.7rem; }
+    #ofrendar p { font-size: 15px; color: rgba(255,255,255,0.68); margin-bottom: 2.2rem; line-height: 1.75; }
+    .btn-ofrenda { display: inline-flex; align-items: center; gap: 9px; background: #fff; color: #b5622a; font-size: 14px; font-weight: 700; padding: 15px 38px; border-radius: 100px; text-decoration: none; letter-spacing: 0.05em; transition: opacity 0.2s; }
+    .btn-ofrenda:hover { opacity: 0.9; }
+
+    /* FOOTER */
+    footer { background: #1e140c; padding: 2.5rem; text-align: center; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: rgba(253,246,238,0.55); margin-bottom: 0.5rem; }
+    .footer-text { font-size: 11px; color: rgba(253,246,238,0.22); letter-spacing: 0.08em; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 1.4rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 3rem 1.5rem; }
+      .hero-photos { display: none; }
+      h1 { font-size: 40px; }
+      .valores-grid { grid-template-columns: 1fr; }
+      .redes-grid { grid-template-columns: 1fr; }
+      .section { padding: 3.5rem 1.5rem; }
+      #ofrendar { padding: 3.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Iglesia <span>de Dios</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Inicio</a></li>
+    <li><a href="#quienes">Quiénes somos</a></li>
+    <li><a href="#ministerios">Ministerios</a></li>
+    <li><a href="#redes">En vivo</a></li>
+  </ul>
+  <a href="#ofrendar" class="nav-btn">♥ Ofrendar</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="hero-tag"><span class="tag-dot"></span> DOMINGO 9:00 AM · FORMOSA</div>
+    <h1>Un lugar donde<br><em>pertenecés</em></h1>
+    <p class="hero-sub">Somos una comunidad que te recibe con los brazos abiertos. Aquí encontrarás fe, familia y propósito para tu vida.</p>
+    <div class="hero-btns">
+      <a href="#redes" class="btn-fill"><i class="ti ti-player-play"></i> Ver en vivo</a>
+      <a href="#ofrendar" class="btn-outline"><i class="ti ti-heart"></i> Ofrendar</a>
+    </div>
+  </div>
+  <div class="hero-photos">
+    <!-- REEMPLAZAR con tus fotos reales:
+         <img src="fotos/iglesia.jpg" class="hp1" style="object-fit:cover;border-radius:14px;width:100%;">
+         <img src="fotos/comunidad.jpg" class="hp2" style="object-fit:cover;border-radius:14px;width:100%;"> -->
+    <div class="hero-photo hp1"><i class="ti ti-photo"></i><span>foto iglesia</span></div>
+    <div class="hero-photo hp2"><i class="ti ti-photo"></i><span>foto comunidad</span></div>
+  </div>
+</section>
+
+<!-- QUIÉNES SOMOS -->
+<section class="section" id="quienes">
+  <div class="section-inner">
+    <p class="section-label">QUIÉNES SOMOS</p>
+    <h2 class="section-title">Más que una iglesia,<br>una familia</h2>
+    <div class="divider"></div>
+    <!-- REEMPLAZAR con tu texto real de "Quiénes somos" -->
+    <p class="section-body">Somos una comunidad cristiana en Formosa, unida por la fe en Jesucristo. Desde hace años caminamos juntos, crecemos juntos y servimos a nuestra ciudad con amor genuino.</p>
+    <div class="valores-grid">
+      <div class="valor-card">
+        <div class="valor-icon"><i class="ti ti-book" style="color:#b5622a;"></i></div>
+        <div class="valor-name">Fe bíblica</div>
+        <div class="valor-desc">Fundamentados en la Palabra de Dios como guía de vida.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon"><i class="ti ti-users" style="color:#b5622a;"></i></div>
+        <div class="valor-name">Comunidad</div>
+        <div class="valor-desc">Un lugar donde cada persona es bienvenida y amada.</div>
+      </div>
+      <div class="valor-card">
+        <div class="valor-icon"><i class="ti ti-world" style="color:#b5622a;"></i></div>
+        <div class="valor-name">Misión</div>
+        <div class="valor-desc">Comprometidos a servir a nuestra ciudad y al mundo.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MINISTERIOS -->
+<section class="section" id="ministerios">
+  <div class="section-inner">
+    <p class="section-label">MINISTERIOS</p>
+    <h2 class="section-title">¿Dónde te sumás?</h2>
+    <p class="section-body">Cada ministerio es un espacio para crecer, servir y conectar.</p>
+    <div class="min-list">
+
+      <!-- Cada min-row enlaza a la subpágina del ministerio -->
+      <a href="ministerios/alabanza.html" class="min-row">
+        <div class="min-num">01</div>
+        <div class="min-ico"><i class="ti ti-music" style="color:#d4916a;"></i></div>
+        <div class="min-info">
+          <div class="min-name">Ministerio de Alabanza</div>
+          <div class="min-desc-text">Adoración congregacional que toca el corazón.</div>
+        </div>
+        <i class="ti ti-arrow-right min-arrow"></i>
+      </a>
+
+      <a href="ministerios/jovenes.html" class="min-row">
+        <div class="min-num">02</div>
+        <div class="min-ico"><i class="ti ti-flame" style="color:#d4916a;"></i></div>
+        <div class="min-info">
+          <div class="min-name">Ministerio de Jóvenes</div>
+          <div class="min-desc-text">La próxima generación de líderes con propósito.</div>
+        </div>
+        <i class="ti ti-arrow-right min-arrow"></i>
+      </a>
+
+      <a href="ministerios/damas.html" class="min-row">
+        <div class="min-num">03</div>
+        <div class="min-ico"><i class="ti ti-heart" style="color:#d4916a;"></i></div>
+        <div class="min-info">
+          <div class="min-name">Ministerio de Damas</div>
+          <div class="min-desc-text">Comunión y crecimiento para las mujeres de la iglesia.</div>
+        </div>
+        <i class="ti ti-arrow-right min-arrow"></i>
+      </a>
+
+      <a href="ministerios/infantil.html" class="min-row">
+        <div class="min-num">04</div>
+        <div class="min-ico"><i class="ti ti-star" style="color:#d4916a;"></i></div>
+        <div class="min-info">
+          <div class="min-name">Ministerio Infantil</div>
+          <div class="min-desc-text">Sembrando la fe en los niños de manera divertida.</div>
+        </div>
+        <i class="ti ti-arrow-right min-arrow"></i>
+      </a>
+
+      <a href="ministerios/varones.html" class="min-row">
+        <div class="min-num">05</div>
+        <div class="min-ico"><i class="ti ti-shield" style="color:#d4916a;"></i></div>
+        <div class="min-info">
+          <div class="min-name">Ministerio de Varones</div>
+          <div class="min-desc-text">Hombres fuertes en fe, familia y liderazgo.</div>
+        </div>
+        <i class="ti ti-arrow-right min-arrow"></i>
+      </a>
+
+      <a href="ministerios/misiones.html" class="min-row">
+        <div class="min-num">06</div>
+        <div class="min-ico"><i class="ti ti-world" style="color:#d4916a;"></i></div>
+        <div class="min-info">
+          <div class="min-name">Ministerio de Misiones</div>
+          <div class="min-desc-text">Llevando el evangelio más allá de Formosa.</div>
+        </div>
+        <i class="ti ti-arrow-right min-arrow"></i>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- REDES EN VIVO -->
+<section class="section" id="redes">
+  <div class="section-inner">
+    <p class="section-label">SÍGUENOS</p>
+    <h2 class="section-title">Conéctate con nosotros</h2>
+    <p class="section-body">Seguinos en redes y unite a nuestras transmisiones en vivo.</p>
+    <div class="redes-grid">
+
+      <div class="red-card">
+        <div class="red-top">
+          <div class="red-icon-ig">📷</div>
+          <div>
+            <div class="red-name">Instagram</div>
+            <!-- REEMPLAZAR con tu handle real -->
+            <div class="red-handle">@iglesiadedios</div>
+          </div>
+        </div>
+        <!-- REEMPLAZAR con embed real de Instagram -->
+        <div class="red-body">Feed de Instagram</div>
+        <div class="red-footer">
+          <div class="live-pill"><span class="live-dot"></span> EN VIVO</div>
+          <!-- REEMPLAZAR href con tu link de Instagram Live -->
+          <a href="#" class="red-ver">Ver transmisión <i class="ti ti-arrow-right" style="font-size:12px;"></i></a>
+        </div>
+      </div>
+
+      <div class="red-card">
+        <div class="red-top">
+          <div class="red-icon-fb">f</div>
+          <div>
+            <div class="red-name">Facebook</div>
+            <!-- REEMPLAZAR con tu nombre real de página -->
+            <div class="red-handle">Iglesia de Dios Formosa</div>
+          </div>
+        </div>
+        <!-- REEMPLAZAR con embed real de Facebook:
+             <iframe src="https://www.facebook.com/plugins/video.php?href=TU_URL" width="100%" height="140" style="border:none;" allowfullscreen></iframe> -->
+        <div class="red-body">Transmisión de Facebook</div>
+        <div class="red-footer">
+          <div class="live-pill"><span class="live-dot"></span> EN VIVO</div>
+          <!-- REEMPLAZAR href con tu link de Facebook Live -->
+          <a href="#" class="red-ver">Ver transmisión <i class="ti ti-arrow-right" style="font-size:12px;"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- OFRENDAR -->
+<section id="ofrendar">
+  <h2>Tu ofrenda transforma vidas</h2>
+  <p>Cada contribución sostiene nuestra misión y llega a quienes más lo necesitan.<br>Gracias por ser parte de esta familia.</p>
+  <!-- REEMPLAZAR href con tu plataforma de pago (Mercado Pago, PayPal, etc.) -->
+  <a href="#" class="btn-ofrenda"><i class="ti ti-heart"></i> Ofrendar en línea</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Iglesia de Dios · Formosa</div>
+  <p class="footer-text">© 2026 · TODOS LOS DERECHOS RESERVADOS</p>
+</footer>
+
+</body>
+</html>
